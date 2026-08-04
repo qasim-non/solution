@@ -13,4 +13,6 @@ class SocialMediaPlatform extends Model
         'name'
     ];
 
+
+    
 }

@@ -21,10 +21,12 @@ class RequestSocialMediaSeeder extends Seeder
                     [
                         'requests_id' => $requestId,
                         'platform_id' => $platformId,
+                        'url' => 'http//',
                     ],
                     [
                         'requests_id' => $requestId,
                         'platform_id' => $platformId,
+                        'url' => 'http//',
                         'created_at' => now(),
                         'updated_at' => now(),
                     ]

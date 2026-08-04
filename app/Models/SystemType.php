@@ -13,4 +13,11 @@ class SystemType extends Model
         'name'
     ];
 
+    public static function getTypes()
+    {
+        $types = SystemType::select('id', 'name')->get();
+
+        return $types;
+    }
+
 }

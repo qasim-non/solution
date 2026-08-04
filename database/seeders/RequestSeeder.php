@@ -17,16 +17,19 @@ class RequestSeeder extends Seeder
                 'project_name' => 'Marketing Website',
                 'mobile' => '01012345678',
                 'description' => 'A modern marketing website for a growing retail brand.',
+                'status' => 'pending',
             ],
             [
                 'project_name' => 'Booking Mobile App',
                 'mobile' => '01122334455',
                 'description' => 'A booking app for clinics with secure user authentication.',
+                'status' => 'pending',
             ],
             [
                 'project_name' => 'E-commerce Platform',
                 'mobile' => '01233445566',
                 'description' => 'A full online store with product catalog and checkout.',
+                'status' => 'pending',
             ],
         ];
 
@@ -37,6 +40,7 @@ class RequestSeeder extends Seeder
                     'project_name' => $request['project_name'],
                     'mobile' => $request['mobile'],
                     'description' => $request['description'],
+                    'status' => 'pending',
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]

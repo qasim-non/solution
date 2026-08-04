@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('project_name')->nullable();
             $table->string('mobile');
             $table->string('description')->nullable();
+            $table->enum('status', ['pending', 'completed']);
             $table->timestamps();
         });
     }
