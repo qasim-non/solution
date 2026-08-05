@@ -19,7 +19,7 @@ class CustomerController extends Controller
         try {
                 Request::createNewRequest($validateRequest);
 
-                return response()->json(['message' => 'The reqeust was created'], 201);
+                return response()->json(['message' => 'The request was created successfully.'], 201);
 
         } catch (Exception $exception) {
                 Log::error('Database transaction failed during createNewRequest: ' . $exception->getMessage(), [
@@ -41,6 +41,6 @@ class CustomerController extends Controller
 
         Message::createNewMessage($validateMessage);
 
-        return response()->json(['message' => 'The message was created'], 201);
+        return response()->json(['message' => 'The message was created successfully.'], 201);
     }
 }

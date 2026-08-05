@@ -16,6 +16,24 @@ class loginRequest extends FormRequest
     }
 
     /**
+     * Custom validation messages for the request.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'username.required' => 'The username is required.',
+            'username.string' => 'The username must be a valid text value.',
+            'username.max' => 'The username may not exceed 255 characters.',
+
+            'password.required' => 'The password is required.',
+            'password.string' => 'The password must be a valid text value.',
+            'password.max' => 'The password may not exceed 255 characters.',
+        ];
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, ValidationRule|array<mixed>|string>

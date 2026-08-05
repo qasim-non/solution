@@ -16,6 +16,32 @@ class projectRequestsRequest extends FormRequest
     }
 
     /**
+     * Custom validation messages for the request.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'search.string' => 'The search term must be a valid text value.',
+            'search.max' => 'The search term may not exceed 50 characters.',
+
+            'system_type.integer' => 'The system type must be a valid number.',
+            'system_type.exists' => 'The selected system type is invalid.',
+
+            'status.string' => 'The status must be a valid text value.',
+            'status.in' => 'The status must be either pending or completed.',
+
+            'start_date.required_with' => 'The start date is required when an end date is provided.',
+            'start_date.date_format' => 'The start date must be in the format YYYY-MM-DD.',
+
+            'end_date.required_with' => 'The end date is required when a start date is provided.',
+            'end_date.date_format' => 'The end date must be in the format YYYY-MM-DD.',
+            'end_date.after_or_equal' => 'The end date must be the same as or later than the start date.',
+        ];
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, ValidationRule|array<mixed>|string>

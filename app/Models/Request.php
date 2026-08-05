@@ -24,10 +24,15 @@ class Request extends Model
         return $this->hasMany(RequestSocialMedia::class);
     }
 
-    public function system_types()
-    {
-        return $this->hasMany(RequestType::class);
-    }
+        public function systemTypes()
+{
+    return $this->belongsToMany(
+        SystemType::class,
+        'request_types',
+        'requests_id',
+        'type_id'
+    )->as('ignore');
+}
 
 
     public static function dashboardInfo()
@@ -108,7 +113,7 @@ class Request extends Model
 
     public static function getAllRequests()
     {
-        $requests = Request::select('id', 'project_name', 'description', 'status', 'created_at');
+        $requests = Request::select('id', 'project_name', 'description', 'status', 'created_at')->with('systemTypes:name');
 
         return $requests;
     }

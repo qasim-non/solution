@@ -19,7 +19,7 @@ class AdminController extends Controller
     public function dashboardInfo()
     {
         $info = Request::dashboardInfo();
-        return response()->json(['message' => 'The data is succffly gathred', 'data' => $info], 200);
+        return response()->json(['message' => 'Dashboard data retrieved successfully.', 'data' => $info], 200);
     }
 
 
@@ -47,7 +47,7 @@ class AdminController extends Controller
 
         $token = $admin->createToken('loginToken')->plainTextToken;
 
-        return response()->json(['message' => 'the admin login succffly', 'token' => $token], 200);
+        return response()->json(['message' => 'Admin login successful.', 'token' => $token], 200);
 
     }
 
@@ -73,8 +73,7 @@ class AdminController extends Controller
             return Request::searchByDate($query, $requestValidated['start_date'], $requestValidated['end_date']);
         });
 
-
-        return response()->json(['message' => 'All requests are gatherd succffly.', 'data' => $requests->get()], 200);
+        return response()->json(['message' => 'All requests retrieved successfully.', 'data' => $requests->get()], 200);
 
     }
 
@@ -83,11 +82,11 @@ class AdminController extends Controller
     {
         if ($request->status == 'completed')
             {
-        return response()->json(['message' => 'the status is already comleted.'], 400);
+        return response()->json(['message' => 'The request status is already completed.'], 400);
             }
         Request::requestToComplete($request['id']);
 
-        return response()->json(['message' => 'status changed to completed.'], 200);
+        return response()->json(['message' => 'Request status updated to completed.'], 200);
     }
 
 
@@ -95,12 +94,12 @@ class AdminController extends Controller
     {
         if ($request->status == 'pending')
             {
-        return response()->json(['message' => 'the status is already pending.'], 400);
+        return response()->json(['message' => 'The request status is already pending.'], 400);
             }
 
         Request::requestToPending($request['id']);
 
-        return response()->json(['message' => 'status changed to pending.'], 200);
+        return response()->json(['message' => 'Request status updated to pending.'], 200);
     }
 
 
@@ -108,21 +107,21 @@ class AdminController extends Controller
     {
         $types = SystemType::getTypes();
 
-        return response()->json(['message' => 'system types gatherd succffly', 'types' => $types], 200);
+        return response()->json(['message' => 'System types retrieved successfully.', 'types' => $types], 200);
     }
 
     public function returnAllMessages()
     {
         $messages = Message::getAllMessages();
 
-        return response()->json(['messages' => $messages], 200);
+        return response()->json(['message' => 'Messages retrieved successfully.', 'messages' => $messages], 200);
     }
 
     public function returnSocialMediaAccount(Request $request)
     {
         $accounts = RequestSocialMedia::returnSocialMediaAccounts($request->id);
 
-        return response()->json(['messages' => $accounts], 200);
+        return response()->json(['message' => 'Social media accounts retrieved successfully.', 'messages' => $accounts], 200);
     }
 
 }
