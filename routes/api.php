@@ -12,6 +12,8 @@ Route::post('/login', [AdminController::class, 'login']);
 
 
 
+
+
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/system-types', [AdminController::class, 'systemTypes']);
